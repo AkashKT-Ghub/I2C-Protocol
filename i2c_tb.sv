@@ -42,10 +42,10 @@ module i2c_tb;
     newd = 1'b1;
     @(posedge done);
     //if(rdata == 8'h27)
-    if(rdata == wdata)
-      $display("[PASS] : DATA MATCHED - RDATA = %0h",rdata);
+    if(wdata == rdata)
+      $display("[PASS] : WDATA %0h -- %0h RDATA",wdata,rdata);
     else
-      $display("[FAIL] : DATA MISMATCHED - RDATA = %0h",rdata);
+      $display("[FAIL] : WDATA %0h -- %0h RDATA",wdata,rdata);
       
     #50;
     $finish();
