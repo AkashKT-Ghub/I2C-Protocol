@@ -41,7 +41,6 @@ module i2c_tb;
     wr = 1'b0;
     newd = 1'b1;
     @(posedge done);
-    //if(rdata == 8'h27)
     if(wdata == rdata)
       $display("[PASS] : WDATA %0h -- %0h RDATA",wdata,rdata);
     else
