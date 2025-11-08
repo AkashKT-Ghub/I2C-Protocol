@@ -28,7 +28,7 @@ module i2c_tb;
     #50;
       
     addr = 7'h10;
-    wdata = 8'h27;
+    wdata = $urandom_range(1,50); //8'h27;
     wr = 1'b1;
     newd = 1'b1;
     @(posedge done);  //WAIT FOR DONE SIGNAL
@@ -41,8 +41,8 @@ module i2c_tb;
     wr = 1'b0;
     newd = 1'b1;
     @(posedge done);
-    if(rdata == 8'h27)
-   // if(rdata == wdata)
+    //if(rdata == 8'h27)
+    if(rdata == wdata)
       $display("[PASS] : DATA MATCHED - RDATA = %0h",rdata);
     else
       $display("[FAIL] : DATA MISMATCHED - RDATA = %0h",rdata);
